@@ -242,7 +242,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670139725}
-  m_LocalRotation: {x: 0.2212078, y: -0.0000000172301, z: 0.000000003908253, w: 0.9752267}
+  m_LocalRotation: {x: 0.2212078, y: 0.0000000172301, z: -0.000000003908253, w: 0.9752267}
   m_LocalPosition: {x: 0, y: 8.5, z: -11.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -328,7 +328,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706342894}
-  m_LocalRotation: {x: 0.2212078, y: -0.0000000172301, z: 0.000000003908253, w: 0.9752267}
+  m_LocalRotation: {x: 0.2212078, y: 0.0000000172301, z: -0.000000003908253, w: 0.9752267}
   m_LocalPosition: {x: 0, y: 8.5, z: -11.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -522,7 +522,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1638113627
 GameObject:
@@ -533,7 +533,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1638113628}
-  - component: {fileID: 1638113629}
   m_Layer: 0
   m_Name: CameraMarker
   m_TagString: Untagged
@@ -553,21 +552,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1638113629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1638113627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 399d359bee2a1894aa2da3b21a851475, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotSpeed: 180
 --- !u!1 &1688313971
 GameObject:
   m_ObjectHideFlags: 3
@@ -674,6 +660,7 @@ GameObject:
   - component: {fileID: 1919887843}
   - component: {fileID: 1919887842}
   - component: {fileID: 1919887841}
+  - component: {fileID: 1919887845}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -758,3 +745,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1919887845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919887840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 399d359bee2a1894aa2da3b21a851475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotSpeed: 180

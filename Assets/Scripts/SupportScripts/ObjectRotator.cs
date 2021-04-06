@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraMarker : MonoBehaviour
+public class ObjectRotator : MonoBehaviour
 {
     #region Poperties
     [Header("Attributes")]
