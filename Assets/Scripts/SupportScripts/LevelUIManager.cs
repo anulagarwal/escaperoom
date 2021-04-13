@@ -9,6 +9,10 @@ public class LevelUIManager : MonoBehaviour
 
     [Header("Gameplay UI Panel Setup")]
     [SerializeField] private GameObject gameplayUIPanelPhase_2 = null;
+    [SerializeField] private GameObject pinPanel;
+    [SerializeField] private GameObject passwordScreen;
+
+
     #endregion
 
     #region MonoBehaviour Functions
@@ -27,5 +31,25 @@ public class LevelUIManager : MonoBehaviour
     {
         gameplayUIPanelPhase_2.SetActive(value);
     }
+
+    public void ShowPin()
+    {
+        pinPanel.SetActive(true);
+    }
+
+    public void ShowPasswordScreen()
+    {
+        passwordScreen.SetActive(true);
+    }
+
+    public void HidePin()
+    {
+        pinPanel.SetActive(false);
+    }
+    public void HidePasswordScreen()
+    {
+        passwordScreen.SetActive(false);
+    }
+
     #endregion
 }

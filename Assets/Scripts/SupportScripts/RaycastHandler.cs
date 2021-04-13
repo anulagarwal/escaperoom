@@ -12,18 +12,21 @@ public class RaycastHandler : MonoBehaviour
     #region MonoBehaviour Functions
     private void Update()
     {
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit))
+        /*if (Input.GetMouseButtonUp(0))
         {
-            if (hit.transform.tag == "Object")
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
             {
-                LevelUIManager.Instance.EnableGamePhase_2(true);
+                if (hit.transform.tag == "Pin")
+                {
+                    LevelUIManager.Instance.EnableGamePhase_2(true);
+                }
+                else
+                {
+                    LevelUIManager.Instance.EnableGamePhase_2(false);
+                }
             }
-            else
-            {
-                LevelUIManager.Instance.EnableGamePhase_2(false);
-            }
-        }
+        }*/
     }
     #endregion
 }

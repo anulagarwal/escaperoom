@@ -10,6 +10,10 @@ public class ObjectRotator : MonoBehaviour
     private float oldX;
 
     private float width = 0f;
+    public bool isObjectSelected;
+    public bool isDoorSelected;
+    Ray ray;
+    RaycastHit hit;
     #endregion
 
     #region MonoBehaviour Functions
@@ -45,15 +49,53 @@ public class ObjectRotator : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             oldX = Input.mousePosition.x;
-            print(oldX);
+           
+
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform.tag == "Pin")
+                {
+                    isObjectSelected = true;
+                }
+                else if(hit.transform.tag == "Door")
+                {
+                    isDoorSelected = true;
+                }
+                else
+                {
+                  //  LevelUIManager.Instance.EnableGamePhase_2(false);
+                  //  LevelUIManager.Instance.HidePasswordScreen();
+                  //  LevelUIManager.Instance.HidePin();
+
+
+                    isObjectSelected = false;
+                    isDoorSelected = false;
+                        
+                }
+            }
+
         }
 
         if (Input.GetMouseButton(0))
         {
-            //print(Input.mousePosition.x - oldX);
+            if(!isObjectSelected && Mathf.Abs(Input.mousePosition.x - oldX) >1)
             transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y + ((Input.mousePosition.x - oldX)/4), transform.rotation.z);
-            //transform.Rotate(Vector3.up * Time.deltaTime * (Input.mousePosition.x - oldX) *2);
-            //oldX = Input.mousePosition.x;
+            
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (isObjectSelected)
+            {
+                LevelUIManager.Instance.ShowPin();
+                isObjectSelected = false;
+            }
+            if (isDoorSelected)
+            {
+                LevelUIManager.Instance.ShowPasswordScreen();
+                isDoorSelected = false;
+            }
         }
         
     }
