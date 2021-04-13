@@ -12,6 +12,9 @@ public class PinController : MonoBehaviour
     public GameObject PinEnter;
     public string correctPassword;
     public string currentPassword;
+    public GameObject wrongText;
+    public GameObject correctText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,11 +32,16 @@ public class PinController : MonoBehaviour
         numberDisplays[currentIndex].text = val;
         currentPassword += val;
         currentIndex++;
+        wrongText.SetActive(false);
         if(currentIndex>= numberDisplays.Count)
         {
             if(currentPassword != correctPassword)
             {
               Invoke( "ResetPassword", 0.4f);
+            }
+            else
+            {
+                correctText.SetActive(true);
             }
             currentIndex = 0;
         }
@@ -45,6 +53,8 @@ public class PinController : MonoBehaviour
         {
             t.text = "";
         }
+        currentPassword = "";
+        wrongText.SetActive(true);
     }
     public void Close()
     {
