@@ -8,6 +8,9 @@ public class ObjectRotator : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private float rotSpeed = 0f;
     private float oldX;
+    private float oldY;
+    bool isMoveX;
+    bool isMoveY;
 
     private float width = 0f;
     public bool isObjectSelected;
@@ -49,7 +52,7 @@ public class ObjectRotator : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             oldX = Input.mousePosition.x;
-           
+            oldY = Input.mousePosition.y;
 
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
@@ -79,9 +82,45 @@ public class ObjectRotator : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            if(!isObjectSelected && Mathf.Abs(Input.mousePosition.x - oldX) >1)
-            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y + ((Input.mousePosition.x - oldX)/4), transform.rotation.z);
-            
+
+            if(Mathf.Abs(Input.mousePosition.x - oldX) > 1 && !isMoveY)
+            {
+                isMoveX = true;
+            }
+            else
+            {
+                isMoveX = false;
+            }
+
+            if(Mathf.Abs(Input.mousePosition.y - oldY) > 1 && !isMoveX)
+            {
+                isMoveY = true;
+            }
+            else
+            {
+                isMoveY = false;
+            }
+
+            if (!isObjectSelected && Mathf.Abs(Input.mousePosition.x - oldX) > 1)
+            {
+                if (isMoveX)
+                {
+                    print(transform.rotation.x);
+
+                    transform.Rotate(0, ((Input.mousePosition.x - oldX) / 4), 0);
+                   
+                }
+
+                if (isMoveY)
+                {
+                   
+                    transform.Rotate ( 0, 0, ((Input.mousePosition.y - oldY) / 4));
+                }
+            }
+            oldX = Input.mousePosition.x;
+            oldY = Input.mousePosition.y;
+               
+          
         }
 
         if (Input.GetMouseButtonUp(0))
