@@ -8,6 +8,12 @@ public class ObjectSelector : MonoBehaviour
     private void OnMouseDown()
     {
         StartCoroutine(ObjectShaker.Instance.Shake(this.transform));
+       
+    }
+
+    private void OnMouseUp()
+    {
+        
     }
     #endregion
 }

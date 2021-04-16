@@ -14,11 +14,14 @@ public class PinController : MonoBehaviour
     public string currentPassword;
     public GameObject wrongText;
     public GameObject correctText;
+    public Transform door;
+    public bool unlockDoor;
 
     // Start is called before the first frame update
     void Start()
     {
         currentIndex = 0;
+        print(Quaternion.Euler(0, 0, 0));
     }
 
     // Update is called once per frame
@@ -42,9 +45,17 @@ public class PinController : MonoBehaviour
             else
             {
                 correctText.SetActive(true);
+                Invoke("UnlockDoor",1f);
             }
             currentIndex = 0;
         }
+    }
+    public void UnlockDoor()
+    {
+        unlockDoor = true;
+        door.GetComponent<Door>().Rotate();
+        PinEnter.SetActive(false);
+
     }
 
     public void ResetPassword()

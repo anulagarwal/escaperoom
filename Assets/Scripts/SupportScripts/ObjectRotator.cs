@@ -17,6 +17,8 @@ public class ObjectRotator : MonoBehaviour
     public bool isDoorSelected;
     Ray ray;
     RaycastHit hit;
+    public GameObject cloud;
+
     #endregion
 
     #region MonoBehaviour Functions
@@ -76,6 +78,9 @@ public class ObjectRotator : MonoBehaviour
                     isDoorSelected = false;
                         
                 }
+                LevelUIManager.Instance.EnableFinger();
+                LevelUIManager.Instance.UpdateFingerPosition(new Vector3(Input.mousePosition.x, Input.mousePosition.y-100f, Input.mousePosition.z));
+                Instantiate(cloud, hit.point, Quaternion.identity);
             }
 
         }
@@ -135,8 +140,10 @@ public class ObjectRotator : MonoBehaviour
                 LevelUIManager.Instance.ShowPasswordScreen();
                 isDoorSelected = false;
             }
+            LevelUIManager.Instance.DisableFinger();
+
         }
-        
+
     }
     #endregion
 }

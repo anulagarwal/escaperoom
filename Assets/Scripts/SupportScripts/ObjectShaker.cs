@@ -6,7 +6,6 @@ public class ObjectShaker : MonoBehaviour
 {
     #region Properties
     public static ObjectShaker Instance = null;
-
     [Header("Attributes")]
     [SerializeField] private float duration = 0f;
     [SerializeField] private float magnitude = 0f;
@@ -35,7 +34,7 @@ public class ObjectShaker : MonoBehaviour
             float x = Random.Range(-1f, 1f) * magnitude;
             float z = Random.Range(-1f, 1f) * magnitude;
 
-            objectTransform.localPosition = new Vector3(x, orignalPos.y, z);
+            objectTransform.localPosition = new Vector3(orignalPos.x +x, orignalPos.y, orignalPos.z +z);
 
             elapsed += Time.deltaTime;
             yield return null;

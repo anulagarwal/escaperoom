@@ -11,6 +11,8 @@ public class LevelUIManager : MonoBehaviour
     [SerializeField] private GameObject gameplayUIPanelPhase_2 = null;
     [SerializeField] private GameObject pinPanel;
     [SerializeField] private GameObject passwordScreen;
+    [SerializeField] private GameObject finger;
+
 
 
     #endregion
@@ -49,6 +51,21 @@ public class LevelUIManager : MonoBehaviour
     public void HidePasswordScreen()
     {
         passwordScreen.SetActive(false);
+    }
+
+    public void EnableFinger()
+    {
+        finger.SetActive(true);
+    }
+
+    public void DisableFinger()
+    {
+        finger.SetActive(false);
+    }
+
+    public void UpdateFingerPosition(Vector3 fingerPos)
+    {
+        finger.transform.position = fingerPos;
     }
 
     #endregion
